@@ -8,26 +8,72 @@ const experiences = [
     company: 'SPAN Technology Services',
     period: 'August 2025 - Present',
     role: 'Software Engineer',
-    description: 'A key technical contributor, building and optimizing robust full-stack solutions and ensuring modern architectural best practices.'
+    commitHash: '5e25989',
+    details: [
+      'Built production RESTful APIs for high-volume tax filing on TaxBandits',
+      'Boosted API response time by 50% via concurrent async operations',
+      'Designed RSA + AES hybrid encryption middleware for taxpayer data',
+      'Engineered exception mail logger for real-time runtime error alerts',
+      'Implemented SuperTokens auth on W9.io — session, tokens, access control',
+      'Built Redis-backed rate limiter to defend against brute-force attacks',
+      'Enforced 90-day password rotation + last-3 reuse prevention policy'
+    ],
+    stats: [
+      { highlight: '50%', text: 'faster APIs' },
+      { highlight: 'Real-Time', text: 'Error alerts' },
+      { highlight: 'E2E', text: 'encryption' }
+    ],
+    techStack: [
+      { name: 'Node.js', color: '#3fb950' },
+      { name: 'Fastify.js', color: '#3fb950' },
+      { name: 'Express.js', color: '#3fb950' },
+      { name: 'PostgreSQL', color: '#d2a8ff' },
+      { name: 'Microsoft SQL', color: '#d2a8ff' },
+      { name: 'RSA/AES', color: '#ff7b72' },
+      { name: 'SuperTokens', color: '#ff7b72' },
+      { name: 'Redis', color: '#ff7b72' }
+    ]
   },
   {
     company: 'Adela Software and Services',
     period: 'June 2023 - July 2025',
     role: 'Software Engineer',
-    description: 'Developed scalable backend APIs and crafted highly responsive, state-of-the-art frontend user interfaces.'
+    commitHash: '054e244',
+    details: [
+      'Migrated legacy PHP/Bootstrap shift scheduler → React + Tailwind + Node.js',
+      'Reduced maintenance overhead by 40%, eliminated critical technical debt',
+      'Developed scalable backend APIs and responsive frontend interfaces',
+      'Built full MERN e-commerce platform with multi-vendor support',
+      'Implemented JWT authentication + RBAC for admin and customer roles',
+      'Ensured 100% privilege separation across 2 distinct user roles'
+    ],
+    stats: [
+      { highlight: 'JWT', text: 'Auth' },
+      { highlight: 'RBAC', text: 'enforced' },
+      { highlight: '40%', text: 'less tech debt' }
+    ],
+    techStack: [
+      { name: 'React.js', color: '#79c0ff' },
+      { name: 'Tailwind CSS', color: '#79c0ff' },
+      { name: 'Node.js', color: '#3fb950' },
+      { name: 'Express.js', color: '#3fb950' },
+      { name: 'MongoDB', color: '#d2a8ff' },
+      { name: 'Microsoft SQL', color: '#d2a8ff' },
+      { name: 'JWT', color: '#ff7b72' }
+    ]
   }
 ];
 
 const About = () => {
   return (
     <Box sx={{ py: { xs: 8, md: 14 }, bgcolor: 'background.default', position: 'relative' }} id="about">
-      <Container maxWidth="lg">
-        <Grid container spacing={8} alignItems="center">
+      <Container maxWidth="md">
+        <Grid container spacing={8} alignItems="center" direction="column">
 
           {/* Left Column: Bio Placeholder */}
-          <Grid item xs={12} md={6} component={motion.div}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+          <Grid item xs={12} component={motion.div}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
@@ -43,11 +89,12 @@ const About = () => {
           </Grid>
 
           {/* Right Column: Roadmap / Experience Timeline */}
-          <Grid item xs={12} md={6} component={motion.div}
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+          <Grid item xs={12} component={motion.div}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            sx={{ width: '100%' }}
           >
             <Card sx={{
               bgcolor: 'rgba(17, 34, 64, 0.4)',
@@ -71,7 +118,7 @@ const About = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 5 }}>
                   <Typography sx={{ fontFamily: 'monospace', color: 'secondary.main', mr: 1.5, fontSize: '1rem' }}>$</Typography>
                   <Typography sx={{ fontFamily: 'monospace', color: '#e6edf3', fontWeight: 'bold', fontSize: '1rem', letterSpacing: 0.5 }}>
-                    git log --grep="Career"
+                    git log --grep="Career" --stat
                   </Typography>
                   <motion.span 
                     animate={{ opacity: [1, 0, 1] }} 
@@ -89,7 +136,7 @@ const About = () => {
                         <Box sx={{
                           position: 'absolute',
                           top: '24px',
-                          bottom: '-40px',
+                          bottom: '-60px',
                           left: '6px',
                           width: '2px',
                           bgcolor: 'secondary.main',
@@ -107,25 +154,53 @@ const About = () => {
 
                       {/* Branch Content */}
                       <Box sx={{ flexGrow: 1, mt: -0.5 }}>
-                        <Typography sx={{ fontFamily: 'monospace', color: '#ff7b72', mb: 1, fontSize: '0.85rem' }}>
-                          commit {Math.random().toString(16).slice(2, 9)}
+                        <Typography sx={{ fontFamily: 'monospace', color: '#ff7b72', mb: 1.5, fontSize: '0.9rem' }}>
+                          commit {exp.commitHash}
                         </Typography>
                         
-                        <Typography sx={{ fontFamily: 'monospace', color: 'text.primary', fontWeight: 'bold', fontSize: '1.2rem', mb: 1 }}>
+                        <Typography sx={{ fontFamily: 'monospace', color: '#e6edf3', fontWeight: 'bold', fontSize: '1.2rem', mb: 1 }}>
                           feat({exp.company.split(' ')[0].toLowerCase()}): {exp.role.toLowerCase().replace(/ /g, '_')}
                         </Typography>
                         
-                        <Typography sx={{ fontFamily: 'monospace', color: 'primary.light', mb: 0.5, fontSize: '0.9rem' }}>
-                          Author: {exp.company}
-                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 1, sm: 3 }, mb: 3 }}>
+                          <Typography sx={{ fontFamily: 'monospace', color: '#79c0ff', fontSize: '0.9rem' }}>
+                            Author: {exp.company}
+                          </Typography>
+                          <Typography sx={{ fontFamily: 'monospace', color: 'text.secondary', fontSize: '0.9rem' }}>
+                            Date: {exp.period}
+                          </Typography>
+                        </Box>
                         
-                        <Typography sx={{ fontFamily: 'monospace', color: 'text.secondary', mb: 3, fontSize: '0.9rem' }}>
-                          Date:   {exp.period}
-                        </Typography>
-                        
-                        <Typography sx={{ color: 'text.secondary', lineHeight: 1.7, fontSize: '0.95rem' }}>
-                          {exp.description}
-                        </Typography>
+                        <Box sx={{ mb: 3 }}>
+                          {exp.details.map((detail, i) => (
+                            <Typography key={i} sx={{ fontFamily: 'monospace', color: 'text.secondary', fontSize: '0.9rem', mb: 1.2, display: 'flex' }}>
+                              <Box component="span" sx={{ color: '#3fb950', mr: 2, fontWeight: 'bold' }}>+</Box> {detail}
+                            </Typography>
+                          ))}
+                        </Box>
+
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3, mb: 3 }}>
+                          {exp.stats.map((stat, i) => (
+                            <Typography key={i} sx={{ fontFamily: 'monospace', color: 'text.secondary', fontSize: '0.9rem' }}>
+                              <Box component="span" sx={{ color: '#3fb950' }}>{stat.highlight}</Box> {stat.text}
+                            </Typography>
+                          ))}
+                        </Box>
+
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+                          {exp.techStack.map((tech, i) => (
+                            <Box key={i} sx={{ 
+                              px: 1.5, py: 0.5, 
+                              border: '1px solid', borderColor: tech.color, 
+                              borderRadius: '12px', 
+                              display: 'flex', alignItems: 'center' 
+                            }}>
+                              <Typography sx={{ fontFamily: 'monospace', fontSize: '0.75rem', color: tech.color }}>
+                                {tech.name}
+                              </Typography>
+                            </Box>
+                          ))}
+                        </Box>
                       </Box>
                     </Box>
                   ))}

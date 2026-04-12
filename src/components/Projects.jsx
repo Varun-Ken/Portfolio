@@ -11,7 +11,7 @@ import pistusLogo from '../images/pistus.png';
 const projects = [
   {
     title: 'TaxBandits API',
-    description: 'A robust and secure payroll and employment tax filings API portal. Designed with scalability in mind to handle high volumes of sensitive financial documentation.',
+    description: 'TaxBandits is a payroll and employment tax filing platform that helps businesses, CPAs and tax professionals file IRS forms online — including W-2s, 1099s and 94x series forms. It handles the entire filing lifecycle from form preparation and validation to e-filing directly with the IRS and distributing recipient copies. Built for high-volume operations, it supports thousands of filings with built-in compliance checks, real-time status tracking and secure handling of sensitive financial data.',
     logo: taxbanditsLogo,
     tags: ['Next.js', 'Node.js', 'Fastify.js', 'MSSQL'],
     demoLink: '#',
@@ -25,9 +25,9 @@ const projects = [
   },
   {
     title: 'W9.io',
-    description: 'A modern, sleek dashboard application for managing W9 forms and compliance documents seamlessly. Built with high-tech data grids and status tracking indicators.',
+    description: 'W9.io is a W-9 tax form management platform designed to simplify the vendor onboarding process for businesses. Instead of chasing down paper forms or email attachments, companies can request, collect and store W-9s from contractors and vendors digitally in one centralized dashboard. It keeps businesses audit-ready by maintaining an organized, up-to-date record of vendor tax information and flagging incomplete or expired forms automatically.',
     logo: taxbanditsLogo,
-    tags: ['React.js', 'Remix.js', 'Express.js', 'Redis', 'Supertokens'],
+    tags: ['React.js', 'Remix.js', 'Express.js', 'PostgreSQL', 'Redis', 'Supertokens'],
     demoLink: '#',
     sourceLink: '#',
     achievements: [
@@ -141,12 +141,12 @@ const Projects = () => {
                   }}
                 >
                   <CardContent sx={{ p: 4, display: 'flex', flexDirection: 'column' }}>
-                    <Box sx={{ height: '48px', display: 'flex', alignItems: 'center', mb: 2 }}>
-                      <img 
+                    <Box sx={{ height: '0px', display: 'flex', alignItems: 'center', mb: 2 }}>
+                      {/* <img 
                         src={project.logo} 
                         alt={`${project.title} logo`} 
                         style={{ maxHeight: '48px', maxWidth: '200px', objectFit: 'contain' }} 
-                      />
+                      /> */}
                     </Box>
                     <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'text.primary', mb: 3 }}>
                       {project.title}

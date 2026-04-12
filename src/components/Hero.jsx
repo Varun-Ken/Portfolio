@@ -148,7 +148,7 @@ const Hero = () => {
                   // The Philosophy
                 </Typography>
                 <Typography sx={{ color: 'text.primary', fontWeight: 500, lineHeight: 1.8, fontSize: '1.05rem' }}>
-                  Because I believe great backend engineering isn't just about making things work — it's about making things work reliably, securely and at scale.
+                  I believe great backend engineering isn't just about making things work — it's about making things work reliably, securely and at scale.
                 </Typography>
               </Box>
 
