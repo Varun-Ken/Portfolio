@@ -6,7 +6,6 @@ import LaunchIcon from '@mui/icons-material/Launch';
 
 // Import images from src/images
 import taxbanditsLogo from '../images/taxbandits.png';
-import pistusLogo from '../images/pistus.png';
 
 const projects = [
   {
@@ -19,8 +18,8 @@ const projects = [
     achievements: [
       { action: 'Architected & shipped production-grade RESTful APIs', detail: 'handling high-volume tax filing ops — built with structured validation, clean error boundaries, handling exceptions and strict REST principles.' },
       { action: 'Cut API response time by 50%', detail: 'that wraps every sensitive financial payload in dual-layer cryptographic security — end-to-end protected, compliance-aligned, zero compromise.' },
-      { action: 'Engineered hybrid RSA + AES encryption middleware', detail: 'to handle sensitive financial and taxpayer payloads — end-to-end cryptographic security, zero-trust by design and compliant with industry data protection standards.' },
-      { action: 'Enforced enterprise-grade password policies at the system level', detail: 'mandatory 90-day rotation, last-3-reuse prevention, hardened credential hygiene baked into the auth pipeline by design.' }
+      { action: 'Wired up a real-time exception mailer', detail: `runtime errors don't just log they notify. Stack trace, context, timestamp — delivered instantly, so nothing breaks in silence.` },
+      { action: 'Implemented API audit logger', detail: `captures the complete request-response cycle for every user action — raw payload in, raw response out, stored with history. Debugging and compliance in one shot.` },
     ]
   },
   {
