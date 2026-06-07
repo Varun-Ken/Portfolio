@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/purity */
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Container, Button, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -157,15 +158,6 @@ const Hero = () => {
 
           <Stack direction="row" spacing={3} sx={{ mt: 2 }}>
             <Button 
-              variant="contained" 
-              size="large" 
-              startIcon={<StorageIcon />}
-              href="#projects"
-              sx={{ px: 4, py: 1.5, borderRadius: '50px', fontWeight: 'bold' }}
-            >
-              View System Log (Projects)
-            </Button>
-            <Button 
               variant="outlined" 
               size="large" 
               startIcon={<TerminalIcon />}
@@ -173,6 +165,15 @@ const Hero = () => {
               sx={{ px: 4, py: 1.5, borderRadius: '50px', fontWeight: 'bold', '&:hover': { bgcolor: 'rgba(144, 202, 249, 0.1)' } }}
             >
               Execute Profile
+            </Button>
+            <Button 
+              variant="contained" 
+              size="large" 
+              startIcon={<StorageIcon />}
+              href="#projects"
+              sx={{ px: 4, py: 1.5, borderRadius: '50px', fontWeight: 'bold' }}
+            >
+              View System Log (Projects)
             </Button>
           </Stack>
 
